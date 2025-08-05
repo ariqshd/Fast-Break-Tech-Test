@@ -10,6 +10,11 @@ public interface IService
     void Initialize();
 
     /// <summary>
+    /// Performs post-initialization operations for the service after the primary initialization has completed.
+    /// </summary>
+    void PostInitialize();
+
+    /// <summary>
     /// Shuts down the service cleanly.
     /// </summary>
     void Shutdown();

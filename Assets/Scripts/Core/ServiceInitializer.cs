@@ -1,3 +1,6 @@
+using System;
+using Gameplay;
+using Services;
 using UnityEngine;
 
 /// <summary>
@@ -14,6 +17,16 @@ public class ServiceInitializer : MonoBehaviour
         InitializeServices(_isNetworked);
     }
 
+    private void Start()
+    {
+        var orderedServices = ServiceLocator.GetServicesInDependencyOrder();
+        foreach (var service in orderedServices)
+        {
+            if (service is IService gs)
+                gs.PostInitialize();
+        }
+    }
+
     /// <summary>
     /// Registers all required services and initializes them in dependency order.
     /// Add your service registration logic here.
@@ -21,10 +34,17 @@ public class ServiceInitializer : MonoBehaviour
     private void InitializeServices(bool isNetworked)
     {
         // Register dependencies first if needed
-        //ServiceLocator.RegisterDependency<IPlayerService, IInputService>();
+        ServiceLocator.RegisterDependency<LocalMultiplayerGameManagerService, IPlayerInputManagerService>();
+        ServiceLocator.RegisterDependency<LocalMultiplayerGameManagerService, ITeamService>();
+        ServiceLocator.RegisterDependency<LocalMultiplayerGameManagerService, IPlayerSpawnerService>();
+        ServiceLocator.RegisterDependency<LocalMultiplayerGameManagerService, ICourtPositionService>();
 
         // Create and register services (with null checks)
-        //RegisterService<GameManagerService>();
+        ServiceLocator.Register<IPlayerInputManagerService>(new PlayerInputManagerService());
+        ServiceLocator.Register<ITeamService>(new TeamService());
+        RegisterService<IPlayerSpawnerService>();
+        RegisterService<ICourtPositionService>();
+        ServiceLocator.Register<IGameManagerService>(new LocalMultiplayerGameManagerService());
 
         // Add networked services if needed
         if (isNetworked)
@@ -56,11 +76,11 @@ public class ServiceInitializer : MonoBehaviour
     /// <summary>
     /// Shuts down all registered services in reverse dependency order when the game ends or this object is destroyed.
     /// </summary>
-    // TODO: Ensure shutdown order is correct
     private void OnDestroy()
     {
         // Shutdown services in dependency order (BUG: should be reverse order)
         var orderedServices = ServiceLocator.GetServicesInDependencyOrder();
+        orderedServices.Reverse(); // Shutdown dependents before dependencies
         foreach (var service in orderedServices)
         {
             if (service is IService gs)

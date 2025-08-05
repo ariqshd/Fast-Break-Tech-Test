@@ -1,21 +1,32 @@
+using System;
 using UnityEngine;
 
-public class GameManager : IService
+namespace Services
 {
-    // Intentionally left blank for candidate implementation.
-    // Needs to be attached to ServiceLocator
-    public string GetServiceName()
+    public class GameManager: IGameManagerService
     {
-        throw new System.NotImplementedException();
-    }
+        public event Action OnGameStateChanged;
 
-    public void Initialize()
-    {
-        throw new System.NotImplementedException();
-    }
+        public virtual string GetServiceName()
+        {
+            return nameof(GameManager); 
+        }
 
-    public void Shutdown()
-    {
-        throw new System.NotImplementedException();
+        public virtual void Initialize()
+        {
+        }
+
+        public virtual void PostInitialize()
+        {
+        }
+
+        public virtual void Shutdown()
+        {
+        }
+        
+        public virtual void StartGame()
+        {
+        }
+
     }
 }
