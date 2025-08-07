@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26c089ff76c42128107643cf8488582, type: 3}
+  m_Name: AbilityInputBindingData
+  m_EditorClassIdentifier: 
+  abilityInputBindings:
+  - Ability: {fileID: 11400000, guid: 945225d0dfd932a45b244f001d8d3ff9, type: 2}
+    ActionReference: {fileID: 930235589268369634, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  - Ability: {fileID: 11400000, guid: 1b54fa58512bb2d4b8d308cc05b7b29b, type: 2}
+    ActionReference: {fileID: -4655894972212842690, guid: 052faaac586de48259a63d0c4782560b, type: 3}
