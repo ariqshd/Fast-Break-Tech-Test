@@ -64,6 +64,11 @@ namespace Services
             return _teamCache[team];
         }
 
+        public List<GameObject> GetPlayerTeam(GameObject pawn)
+        {
+            return _playerTeamDictionary.TryGetValue(pawn, out var team) ? GetPlayerTeam(team) : null;
+        }
+
         public bool IsPlayerInTeam(GameObject pawn)
         {
             return pawn != null && _playerTeamDictionary.ContainsKey(pawn);

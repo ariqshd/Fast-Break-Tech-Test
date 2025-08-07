@@ -55,6 +55,9 @@ namespace Services
                 _playerSpawnerService.SpawnOpponentPawn(opponentPositions[i], out var opponentPawn);
                 _teamService.AddPlayerToTeam(opponentPawn, Team.B);
             }
+            
+            var ballPosition = _courtPositionService.GetCenterCourtPosition();
+            _playerSpawnerService.SpawnBall(ballPosition, out var ball);
         }
     }
 }

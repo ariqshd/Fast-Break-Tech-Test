@@ -40,6 +40,7 @@ public class ServiceInitializer : MonoBehaviour
         ServiceLocator.RegisterDependency<LocalMultiplayerGameManagerService, ICourtPositionService>();
 
         // Create and register services (with null checks)
+        ServiceLocator.Register<IGameplayEventService>(new GameplayEventService());
         ServiceLocator.Register<IPlayerInputManagerService>(new PlayerInputManagerService());
         ServiceLocator.Register<ITeamService>(new TeamService());
         RegisterService<IPlayerSpawnerService>();

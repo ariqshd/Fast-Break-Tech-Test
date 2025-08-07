@@ -9,6 +9,8 @@ namespace Services
     {
         [SerializeField] private List<SpawnPoint> teamASpawnPoints;
         [SerializeField] private List<SpawnPoint> teamBSpawnPoints;
+        [SerializeField] private Transform basket;
+        [SerializeField] private Transform centerCourt;
         
         private Dictionary<Team, List<Vector3>> _spawnPoints;
         
@@ -50,6 +52,16 @@ namespace Services
         public List<Vector3> GetSpawnPoints(Team team)
         {
             return _spawnPoints[team];
+        }
+
+        public Vector3 GetBasketPosition()
+        {
+            return basket.position;
+        }
+
+        public Vector3 GetCenterCourtPosition()
+        {
+            return centerCourt.position;
         }
     }
 }

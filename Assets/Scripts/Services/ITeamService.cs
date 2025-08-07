@@ -8,6 +8,7 @@ namespace Services
     {
         public void AddPlayerToTeam(GameObject pawn, Team team);
         public List<GameObject> GetPlayerTeam(Team team);
+        public List<GameObject> GetPlayerTeam(GameObject pawn);
         public bool IsPlayerInTeam(GameObject pawn);
         public bool TryGetPlayerTeam(GameObject pawn, out Team team);
     }
