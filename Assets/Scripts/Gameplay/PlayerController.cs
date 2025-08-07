@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using Data;
+using Gameplay.AbilitySystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +12,7 @@ namespace Gameplay
     /// </summary>
     public class PlayerController : MonoBehaviour, IPlayerController
     {
-        [SerializeField] Transform cameraTransform;
+        [SerializeField] private Transform cameraTransform;
         
         private Pawn _possessedPawn;
         private Vector2 _savedMoveInput;
@@ -29,16 +33,21 @@ namespace Gameplay
 
         public void Pass(InputAction.CallbackContext context)
         {
-            Debug.Log("Pass");
+            _possessedPawn.Pass(context);
         }
         
         public void Shoot(InputAction.CallbackContext context)
         {
-            Debug.Log("Shoot");
+            _possessedPawn.Shoot(context);
         }
         
         #endregion // Input Actions
-        
+
+        private void Awake()
+        {
+            
+        }
+
         private void FixedUpdate()
         {
             if(_possessedPawn == null) return;
@@ -59,6 +68,7 @@ namespace Gameplay
         public void Possess(Pawn pawn)
         {
             _possessedPawn = pawn;
+            pawn.SetController(this);
         }
 
         public void UnPossess()

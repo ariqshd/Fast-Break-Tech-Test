@@ -46,9 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 0}
-  movementSpeed: 7
-  groundFriction: 100
-  gravity: 30
 --- !u!114 &1739477036990493763
 MonoBehaviour:
   m_ObjectHideFlags: 0

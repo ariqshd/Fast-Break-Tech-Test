@@ -303,10 +303,8 @@ GameObject:
   - component: {fileID: 5710873506180748339}
   - component: {fileID: 4009478270641555684}
   - component: {fileID: 5675887595883325025}
-  - component: {fileID: 375633047043924182}
-  - component: {fileID: 5386574215400692058}
   m_Layer: 6
-  m_Name: Pawn
+  m_Name: DummyPawn
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,7 +412,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9214183132029187203}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -428,47 +426,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &375633047043924182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9214183132029187203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c423c75765544e8586e5bad9da5c844e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilitySystemController: {fileID: 5386574215400692058}
-  abilityInputBindingData: {fileID: 11400000, guid: 050be85c00d395245a599c47d4cf89ea, type: 2}
-  stepHeightRatio: 0.1
-  colliderHeight: 2
-  colliderThickness: 1
-  colliderOffset: {x: 0, y: 0, z: 0}
-  isInDebugMode: 0
-  movementSpeed: 7
-  groundFriction: 100
-  gravity: 30
-  collider: {fileID: 4009478270641555684}
-  interactionCollider: {fileID: 7961573163203648785}
-  overHeadSocket: {fileID: 4336116113352087227}
-  handRightSocket: {fileID: 6709501295277223161}
-  handLeftSocket: {fileID: 7950458041550417276}
---- !u!114 &5386574215400692058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9214183132029187203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6219f0163a4c40eab2ef9712f571c4cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
