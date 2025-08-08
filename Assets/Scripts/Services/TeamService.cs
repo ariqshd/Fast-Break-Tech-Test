@@ -5,6 +5,11 @@ using UnityEngine;
 
 namespace Services
 {
+    /// <summary>
+    /// Provides team management functionality including adding players to teams,
+    /// retrieving team rosters, and checking team membership.
+    /// Designed to manage game objects grouped into predefined teams.
+    /// </summary>
     public class TeamService : ITeamService
     {
         private Dictionary<GameObject, Team> _playerTeamDictionary;

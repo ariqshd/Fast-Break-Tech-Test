@@ -5,7 +5,12 @@ using UnityEngine;
 
 namespace Services
 {
-    public class CourtPositionService : MonoBehaviour, ICourtPositionService
+    /// <summary>
+    /// The EntityPositionService is responsible for managing and providing positional data of game entities
+    /// used in the game world. This includes spawn locations for teams, the basket position,
+    /// and the center of the court.
+    /// </summary>
+    public class EntityPositionService : MonoBehaviour, IEntityPositionService
     {
         [SerializeField] private List<SpawnPoint> teamASpawnPoints;
         [SerializeField] private List<SpawnPoint> teamBSpawnPoints;
@@ -46,10 +51,10 @@ namespace Services
 
         public string GetServiceName()
         {
-            return nameof(CourtPositionService);
+            return nameof(EntityPositionService);
         }
 
-        public List<Vector3> GetSpawnPoints(Team team)
+        public List<Vector3> GetPawnSpawnPosition(Team team)
         {
             return _spawnPoints[team];
         }

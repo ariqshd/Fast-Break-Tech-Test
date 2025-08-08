@@ -7,6 +7,11 @@ using UnityEngine;
 
 namespace Gameplay.AbilitySystem
 {
+    /// <summary>
+    /// Manages the ability system for a given actor in the game.
+    /// Responsible for registering, activating, and modifying abilities as well as managing gameplay tags
+    /// and applying gameplay effects to the owner or target actors.
+    /// </summary>
     public class AbilitySystemController : MonoBehaviour
     {
         protected List<IGameplayAbility> RegisteredAbilities;

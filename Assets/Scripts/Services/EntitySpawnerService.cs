@@ -6,7 +6,11 @@ using UnityEngine.InputSystem;
 
 namespace Services
 {
-    public class PlayerSpawnerService : MonoBehaviour, IPlayerSpawnerService
+    /// <summary>
+    /// The EntitySpawnerService is responsible for managing the spawning of gameplay-related entities
+    /// such as player pawns, opponent pawns, and balls.
+    /// </summary>
+    public class EntitySpawnerService : MonoBehaviour, IEntitySpawnerService
     {
         [SerializeField] private GameObject _pawnPrefab;
         [SerializeField] private GameObject _opponentPawnPrefab;
@@ -26,7 +30,7 @@ namespace Services
 
         public string GetServiceName()
         {
-            return nameof(PlayerSpawnerService);
+            return nameof(EntitySpawnerService);
         }
 
         public bool TrySpawnPlayerPawn(GameObject controller, Vector3 position, out GameObject pawn)

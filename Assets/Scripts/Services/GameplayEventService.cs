@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace Services
 {
+    /// <summary>
+    /// Provides functionality for managing gameplay events. This service allows
+    /// subscribing, unsubscribing, and broadcasting gameplay events with or without parameters.
+    /// </summary>
     public class GameplayEventService : IGameplayEventService
     {
         private Dictionary<GameplayTag, List<Action<object>>> _eventListeners = new Dictionary<GameplayTag, List<Action<object>>>();

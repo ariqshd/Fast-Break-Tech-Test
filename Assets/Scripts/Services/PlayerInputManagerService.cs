@@ -5,9 +5,6 @@ namespace Services
 {
     /// <summary>
     /// Manages player input functionalities using Unity's PlayerInputManager.
-    /// This service offers player joining operations, maximum player count management,
-    /// and event subscription capabilities for player join events.
-    /// Implements the <see cref="IPlayerInputManagerService"/> interface.
     /// </summary>
     public class PlayerInputManagerService : IPlayerInputManagerService
     {

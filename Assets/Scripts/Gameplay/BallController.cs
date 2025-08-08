@@ -8,6 +8,11 @@ using UnityEngine.Events;
 
 namespace Gameplay
 {
+    /// <summary>
+    /// The BallController class is responsible for controlling the behavior of a ball in a gameplay environment.
+    /// It provides functionality for possession, movement, physics-based movement, attachment to sockets,
+    /// and applying gameplay effects to targets.
+    /// </summary>
     public class BallController : MonoBehaviour, IBallController, IGameplayEffectObject
     {
         [Header("Gameplay Effects")]

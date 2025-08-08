@@ -8,6 +8,10 @@ using UnityEngine;
 
 namespace Gameplay.AbilitySystem.Abilities
 {
+    /// <summary>
+    /// Defines what an in-game ability does, what (if anything) it costs to use, when or under what conditions it can be used, and so on
+    /// This serves as a base class for implementing specific abilities with behaviors like activation, cancellation, and ending.
+    /// </summary>
     public class GameplayAbility : ScriptableObject, IGameplayAbility
     {
         /// <summary>

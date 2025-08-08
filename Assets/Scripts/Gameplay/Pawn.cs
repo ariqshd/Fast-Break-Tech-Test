@@ -1,3 +1,4 @@
+using Core;
 using Data;
 using Gameplay.AbilitySystem;
 using Gameplay.AbilitySystem.Effects;
@@ -8,7 +9,7 @@ using UnityEngine.InputSystem;
 namespace Gameplay
 {
     /// <summary>
-    /// Possessable game object that can be controlled by a player.
+    /// Possessable game object that can be controlled by a player or AI.
     /// </summary>
     [RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider))]
     public class Pawn : MonoBehaviour, IAbilitySystemController, IPawnController
@@ -36,7 +37,6 @@ namespace Gameplay
         private bool _isGrounded;
         private int _currentLayer;
         private float _baseSensorRange;
-        private RaycastSensor _sensor;
         private Vector3 _direction;
         private Vector3 _savedVelocity;
         private Vector3 _savedMovementVelocity;

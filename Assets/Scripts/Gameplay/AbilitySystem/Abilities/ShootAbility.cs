@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Core;
 using Data;
 using Gameplay.AbilitySystem.Tasks;
 using Services;
@@ -11,7 +12,7 @@ namespace Gameplay.AbilitySystem.Abilities
     {
         [SerializeField] private float angle = 60f;
         [SerializeField] private float forceMultiplier = .78f;
-        private ICourtPositionService _courtPositionService;
+        private IEntityPositionService _entityPositionService;
         private IGameplayEventService _gameplayEventService;
 
         private Vector3 _basketPosition;
@@ -28,7 +29,7 @@ namespace Gameplay.AbilitySystem.Abilities
         protected override void Initialize()
         {
             base.Initialize();
-            _courtPositionService = ServiceLocator.Get<ICourtPositionService>();
+            _entityPositionService = ServiceLocator.Get<IEntityPositionService>();
             _gameplayEventService = ServiceLocator.Get<IGameplayEventService>();
         }
 
@@ -36,7 +37,7 @@ namespace Gameplay.AbilitySystem.Abilities
         {
             await base.ActivateAbility();
             
-            _basketPosition = _courtPositionService.GetBasketPosition();
+            _basketPosition = _entityPositionService.GetBasketPosition();
             _gameplayEventService.Subscribe(GameplayTags.Event_ShootBall, obj => _ = OnShootEvent(obj));
         }
 
